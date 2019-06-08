@@ -1,0 +1,39 @@
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="babel.js"></script>
+<style>
+   
+   </style>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel"> 
+    
+     class Add extends React.Component{
+         constructor(){
+             debugger;
+             super();
+             this.sum=0;
+             this.fnAdd=this.fnAdd.bind(this);
+         }
+         fnAdd(){
+             debugger;
+          //ger ref
+          let n1Ref=this.refs.n1;
+          let n2Ref=this.refs.n2;
+          //take data
+          let n1=n1Ref.value;
+          let n2=n2Ref.value;
+          //perform opa
+
+          this.sum=Number(n1)+parseInt(n2);
+          alert(this.sum);
+         }
+         render(){
+             return <div><input ref="n1" /><input ref="n2" /><input type="button" value="add" onClick={this.fnAdd} /><span>{this.sum}</span></div>
+         }
+         
+     }
+     ReactDOM.render(<Add />,document.getElementById('root'));
+    </script>
+</body>
